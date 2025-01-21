@@ -10,9 +10,10 @@ const Home = () => {
         <p className="self-center text-2xl">Shop now</p>
       </div>
       <img
-        src="../src/assets/shopping.jpg"
+        src="../public/shopping.jpg"
         alt="Girl shopping stock image"
-        className="w-[500px] rounded-3xl"
+        className="max-w-[500px] rounded-3xl"
+        loading="eager"
       />
     </>
   );

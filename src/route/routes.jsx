@@ -1,7 +1,11 @@
+import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Catalog from "../components/Catalog";
+import Electronics from "../components/Electronics";
 import Home from "../components/Home";
-import { createBrowserRouter } from "react-router-dom";
+import Jewelry from "../components/Jewelery";
+import MenClothings from "../components/MenClothings";
+import WomenClothings from "../components/WomenClothings";
 
 const routes = createBrowserRouter([
   {
@@ -15,6 +19,22 @@ const routes = createBrowserRouter([
       {
         path: "/catalog",
         element: <Catalog />,
+      },
+      {
+        path: "/electronics",
+        element: <Electronics />,
+      },
+      {
+        path: "/jewelery",
+        element: <Jewelry />,
+      },
+      {
+        path: "/menClothings",
+        element: <MenClothings />,
+      },
+      {
+        path: "/womenClothings",
+        element: <WomenClothings />,
       },
     ],
   },
