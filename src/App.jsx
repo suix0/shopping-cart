@@ -14,6 +14,7 @@ function App() {
         });
         const fakeProductsJSON = await fakeProducts.json();
         setProducts(fakeProductsJSON);
+        localStorage.setItem("products", JSON.stringify(fakeProductsJSON));
       } catch (error) {
         console.error(error);
       }
@@ -21,12 +22,10 @@ function App() {
     fetchProducts();
   }, []);
 
-  console.log(products);
-
   return (
     <>
       <Header></Header>
-      <Main></Main>
+      <Main products={products}></Main>
     </>
   );
 }
