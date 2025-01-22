@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 
-const ProductCard = ({ product, clickHandler, id }) => {
+const ProductCard = ({ product, clickHandler, id, isModalOpen }) => {
   return (
     <div
-      className="flex flex-col items-center text-sm border p-4 cursor-pointer"
+      className={`flex flex-col items-center text-sm border p-4 cursor-pointer ${
+        isModalOpen && "pointer-events-none"
+      }`}
       onClick={clickHandler}
       id={id}
     >
@@ -56,6 +58,7 @@ ProductCard.propTypes = {
   }),
   clickHandler: PropTypes.func,
   id: PropTypes.number,
+  isModalOpen: PropTypes.bool,
 };
 
 export default ProductCard;

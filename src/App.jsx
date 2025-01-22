@@ -6,6 +6,9 @@ import Main from "./layouts/main/Main";
 function App() {
   const [products, setProducts] = useState(null);
 
+  // For specific product selection for modal
+  const [modal, setModal] = useState(false);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -24,8 +27,8 @@ function App() {
 
   return (
     <>
-      <Header></Header>
-      <Main products={products}></Main>
+      <Header isModalOpen={modal}></Header>
+      <Main products={products} modal={modal} setModal={setModal}></Main>
     </>
   );
 }
