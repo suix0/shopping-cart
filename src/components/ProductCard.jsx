@@ -1,21 +1,44 @@
 import PropTypes from "prop-types";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, clickHandler, id }) => {
   return (
-    <div className="flex flex-col items-center text-sm border p-4">
-      <img src={product.image} className="w-32 h-32"></img>
-      <p>{product.title}</p>
-      <div className="flex flex-col items-start mt-auto">
-        <div className="flex items-center">
+    <div
+      className="flex flex-col items-center text-sm border p-4 cursor-pointer"
+      onClick={clickHandler}
+      id={id}
+    >
+      <img
+        src={product.image}
+        className="w-32 h-32"
+        onClick={clickHandler}
+        id={id}
+      ></img>
+      <p onClick={clickHandler} id={id}>
+        {product.title}
+      </p>
+      <div
+        className="flex flex-col items-start mt-auto"
+        onClick={clickHandler}
+        id={id}
+      >
+        <div className="flex items-center" onClick={clickHandler} id={id}>
           <img
             src="../src/assets/rating.svg"
             alt="Star symbol representing rating"
             className="w-8"
+            onClick={clickHandler}
+            id={id}
           />
-          <p>{product.rating.rate}</p>
+          <p onClick={clickHandler} id={id}>
+            {product.rating.rate}
+          </p>
         </div>
-        <p>{product.rating.count} reviews</p>
-        <p>${product.price}</p>
+        <p onClick={clickHandler} id={id}>
+          {product.rating.count} reviews
+        </p>
+        <p onClick={clickHandler} id={id}>
+          ${product.price}
+        </p>
       </div>
     </div>
   );
@@ -31,6 +54,8 @@ ProductCard.propTypes = {
     }),
     price: PropTypes.number,
   }),
+  clickHandler: PropTypes.func,
+  id: PropTypes.number,
 };
 
 export default ProductCard;

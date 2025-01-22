@@ -15,7 +15,7 @@ const Electronics = () => {
         {products
           .filter((product) => product.category === "electronics")
           .map((product) => (
-            <ProductCard product={product} key={product.id} />
+            <ProductCard product={product} key={product.id} id={product.id} />
           ))}
       </div>
     </div>

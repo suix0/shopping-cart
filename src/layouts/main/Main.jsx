@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 const Main = ({ products }) => {
   return (
-    <div className="mx-72 my-20 flex gap-10">
+    <div className="mx-72 my-20 flex gap-10 flex flex-col relative">
       <Outlet context={products}></Outlet>
     </div>
   );
