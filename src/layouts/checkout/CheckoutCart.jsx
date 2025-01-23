@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import ProductCheckout from "../../components/product/ProductCheckout";
 
 const CheckoutCart = ({ checkout, setCheckout, cartProducts }) => {
   // Disable scroll when checkout cart opens
@@ -14,6 +15,11 @@ const CheckoutCart = ({ checkout, setCheckout, cartProducts }) => {
         checkout ? "translate-x-0" : "translate-x-[1000px]"
       }`}
     >
+      <div>
+        {cartProducts.map((product) => (
+          <ProductCheckout key={crypto.randomUUID()} cartProducts={product} />
+        ))}
+      </div>
       <button onClick={() => setCheckout(false)}>Continute Shopping</button>
     </div>
   );

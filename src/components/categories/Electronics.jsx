@@ -6,7 +6,8 @@ import { useState } from "react";
 const Electronics = () => {
   const [selectedProductID, setSelectedProductID] = useState(null);
 
-  let { products, modal, setModal } = useOutletContext();
+  let { products, modal, setModal, cartProducts, setCartProducts } =
+    useOutletContext();
 
   if (products === null) {
     products = JSON.parse(localStorage.getItem("products"));
@@ -23,6 +24,8 @@ const Electronics = () => {
         isOpen={modal}
         closeModal={() => setModal(false)}
         productID={selectedProductID}
+        cartProducts={cartProducts}
+        setCartProducts={setCartProducts}
       ></CheckoutModal>
       <div>
         <h1 className="text-center">Everything we can offer</h1>

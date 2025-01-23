@@ -69,7 +69,16 @@ const CheckoutModal = (props) => {
               productQuantity={productQuantity}
               setProductQuantity={setProductQuantity}
             ></InputField>
-            <button>Add to Cart</button>
+            <button
+              onClick={() =>
+                props.setCartProducts([
+                  ...props.cartProducts,
+                  { product: product, quantity: productQuantity },
+                ])
+              }
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
@@ -81,6 +90,8 @@ CheckoutModal.propTypes = {
   isOpen: PropTypes.bool,
   closeModal: PropTypes.func,
   productID: PropTypes.string,
+  setCartProducts: PropTypes.func,
+  cartProducts: PropTypes.array,
 };
 
 export default CheckoutModal;
