@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import InputField from "./InputField";
 
 const CheckoutModal = (props) => {
   const [product, setProduct] = useState(null);
@@ -27,7 +28,7 @@ const CheckoutModal = (props) => {
 
   return (
     <div
-      className={`transition-all h-max fixed inset-96 ${
+      className={`transition-all h-max fixed inset-96 bg-white ${
         props.isOpen
           ? "opacity-1 -translate-y-0"
           : "invisible h-[0] opacity-0 -translate-y-96"
@@ -53,9 +54,9 @@ const CheckoutModal = (props) => {
         <p>${product && product.price}</p>
         <div className="flex flex-col gap-4">
           <button onClick={props.closeModal}>Close</button>
-          <div>
-            <input type="number"></input>
-            <button>Add to Checkout</button>
+          <div className="flex flex-col items-start gap-4">
+            <InputField></InputField>
+            <button>Add to Cart</button>
           </div>
         </div>
       </div>
