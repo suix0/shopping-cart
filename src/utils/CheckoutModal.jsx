@@ -7,6 +7,9 @@ const CheckoutModal = (props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // For input field
+  const [productQuantity, setProductQuantity] = useState(1);
+
   useEffect(() => {
     const fetchProductForCheckout = async () => {
       try {
@@ -53,9 +56,19 @@ const CheckoutModal = (props) => {
         <p>{product && product.rating.count} reviews</p>
         <p>${product && product.price}</p>
         <div className="flex flex-col gap-4">
-          <button onClick={props.closeModal}>Close</button>
+          <button
+            onClick={() => {
+              props.closeModal();
+              setProductQuantity(1);
+            }}
+          >
+            Close
+          </button>
           <div className="flex flex-col items-start gap-4">
-            <InputField></InputField>
+            <InputField
+              productQuantity={productQuantity}
+              setProductQuantity={setProductQuantity}
+            ></InputField>
             <button>Add to Cart</button>
           </div>
         </div>
