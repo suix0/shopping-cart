@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Catalog from "../components/Catalog";
-import Electronics from "../components/Electronics";
-import Home from "../components/Home";
-import Jewelry from "../components/Jewelery";
-import MenClothings from "../components/MenClothings";
-import WomenClothings from "../components/WomenClothings";
+import Catalog from "../components/categories/Catalog";
+import Electronics from "../components/categories/Electronics";
+import Home from "../components/categories/Home";
+import Jewelry from "../components/categories/Jewelery";
+import MenClothings from "../components/categories/MenClothings";
+import WomenClothings from "../components/categories/WomenClothings";
 
 const routes = createBrowserRouter([
   {

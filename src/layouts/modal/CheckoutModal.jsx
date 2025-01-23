@@ -31,7 +31,7 @@ const CheckoutModal = (props) => {
 
   return (
     <div
-      className={`transition-all h-max fixed inset-96 bg-white ${
+      className={`transition-all h-max fixed inset-72 bg-white ${
         props.isOpen
           ? "opacity-1 -translate-y-0"
           : "invisible h-[0] opacity-0 -translate-y-96"

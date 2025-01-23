@@ -9,6 +9,9 @@ function App() {
   // For specific product selection for modal
   const [modal, setModal] = useState(false);
 
+  // For checkout cart management
+  const [checkout, setCheckout] = useState(false);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -27,8 +30,18 @@ function App() {
 
   return (
     <>
-      <Header isModalOpen={modal}></Header>
-      <Main products={products} modal={modal} setModal={setModal}></Main>
+      <Header
+        isModalOpen={modal}
+        checkout={checkout}
+        setCheckout={() => setCheckout(true)}
+      ></Header>
+      <Main
+        products={products}
+        modal={modal}
+        setModal={setModal}
+        checkout={checkout}
+        setCheckout={setCheckout}
+      ></Main>
     </>
   );
 }

@@ -1,9 +1,9 @@
 import { useOutletContext } from "react-router-dom";
+import ProductCard from "../product/ProductCard";
+import CheckoutModal from "../../layouts/modal/CheckoutModal";
 import { useState } from "react";
-import ProductCard from "./ProductCard";
-import CheckoutModal from "../utils/CheckoutModal";
 
-const Electronics = () => {
+const Catalog = () => {
   const [selectedProductID, setSelectedProductID] = useState(null);
 
   let { products, modal, setModal } = useOutletContext();
@@ -27,21 +27,19 @@ const Electronics = () => {
       <div>
         <h1 className="text-center">Everything we can offer</h1>
         <div className="grid grid-cols-4 gap-4">
-          {products
-            .filter((product) => product.category === "electronics")
-            .map((product) => (
-              <ProductCard
-                product={product}
-                key={product.id}
-                id={product.id}
-                clickHandler={checkoutModal}
-                isModalOpen={modal}
-              />
-            ))}
+          {products.map((product) => (
+            <ProductCard
+              product={product}
+              key={product.id}
+              id={product.id}
+              clickHandler={checkoutModal}
+              isModalOpen={modal}
+            />
+          ))}
         </div>
       </div>
     </>
   );
 };
 
-export default Electronics;
+export default Catalog;
