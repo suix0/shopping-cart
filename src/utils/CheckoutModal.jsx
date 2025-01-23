@@ -27,20 +27,36 @@ const CheckoutModal = (props) => {
 
   return (
     <div
-      className={`transition-all absolute inset-72 ${
+      className={`transition-all h-max fixed inset-96 ${
         props.isOpen
           ? "opacity-1 -translate-y-0"
           : "invisible h-[0] opacity-0 -translate-y-96"
       } flex justify-center`}
     >
-      <img src="" alt="Product image" />
+      <img
+        src={product && product.image}
+        alt="Product image"
+        className="w-20"
+      />
       <div>
-        <p></p>
-        <p></p>
-        <input type="number"></input>
-        <div className="flex gap-4">
+        <p>{product && product.title}</p>
+        <p>{product && product.description}</p>
+        <div className="flex items-center">
+          <img
+            src="../src/assets/rating.svg"
+            alt="Star symbol representing rating"
+            className="w-8"
+          />
+          <p>{product && product.rating.rate}</p>
+        </div>
+        <p>{product && product.rating.count} reviews</p>
+        <p>${product && product.price}</p>
+        <div className="flex flex-col gap-4">
           <button onClick={props.closeModal}>Close</button>
-          <button>Add to Checkout</button>
+          <div>
+            <input type="number"></input>
+            <button>Add to Checkout</button>
+          </div>
         </div>
       </div>
     </div>

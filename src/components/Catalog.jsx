@@ -4,10 +4,9 @@ import CheckoutModal from "../utils/CheckoutModal";
 import { useState } from "react";
 
 const Catalog = () => {
-  const [modal, setModal] = useState(false);
   const [selectedProductID, setSelectedProductID] = useState(null);
 
-  let products = useOutletContext();
+  let { products, modal, setModal } = useOutletContext();
 
   if (products === null) {
     products = JSON.parse(localStorage.getItem("products"));
@@ -34,6 +33,7 @@ const Catalog = () => {
               key={product.id}
               id={product.id}
               clickHandler={checkoutModal}
+              isModalOpen={modal}
             />
           ))}
         </div>
