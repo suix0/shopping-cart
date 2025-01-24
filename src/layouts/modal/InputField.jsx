@@ -73,7 +73,7 @@ InputField.propTypes = {
   productQuantity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   setProductQuantity: PropTypes.func,
   isCheckout: PropTypes.bool,
-  id: PropTypes.PropTypes.number,
+  id: PropTypes.number,
 };
 
 export default InputField;

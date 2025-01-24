@@ -72,12 +72,34 @@ const CheckoutModal = (props) => {
               id={null}
             ></InputField>
             <button
-              onClick={() =>
-                props.setCartProducts([
-                  ...props.cartProducts,
-                  { product: product, quantity: productQuantity },
-                ])
-              }
+              onClick={() => {
+                const objExists = props.cartProducts.find(
+                  (prod) => prod.product.id === product.id
+                );
+                if (objExists === undefined) {
+                  props.setCartProducts([
+                    ...props.cartProducts,
+                    {
+                      product: product,
+                      quantity: productQuantity,
+                      id: crypto.randomUUID(),
+                    },
+                  ]);
+                } else {
+                  // if it exists, update quantity
+                  const newCartProducts = props.cartProducts.map((prod) => {
+                    if (prod.product.id === product.id) {
+                      return {
+                        ...prod,
+                        quantity: (prod.quantity += productQuantity),
+                      };
+                    } else {
+                      return prod;
+                    }
+                  });
+                  props.setCartProducts(newCartProducts);
+                }
+              }}
             >
               Add to Cart
             </button>
