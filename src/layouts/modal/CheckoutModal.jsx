@@ -31,7 +31,7 @@ const CheckoutModal = (props) => {
 
   return (
     <div
-      className={`transition-all h-max fixed inset-96 bg-white ${
+      className={`transition-all h-max fixed inset-72 bg-white ${
         props.isOpen
           ? "opacity-1 -translate-y-0"
           : "invisible h-[0] opacity-0 -translate-y-96"
@@ -68,8 +68,44 @@ const CheckoutModal = (props) => {
             <InputField
               productQuantity={productQuantity}
               setProductQuantity={setProductQuantity}
+              isCheckout={false}
+              id={null}
             ></InputField>
-            <button>Add to Cart</button>
+            <button
+              onClick={() => {
+                // Check if the product in modal exists in cart before
+                // Adding it to the cart
+                const objExists = props.cartProducts.find(
+                  (prod) => prod.product.id === product.id
+                );
+                if (objExists === undefined) {
+                  // It doesn't exist, so add product in cart
+                  props.setCartProducts([
+                    ...props.cartProducts,
+                    {
+                      product: product,
+                      quantity: productQuantity,
+                      id: crypto.randomUUID(),
+                    },
+                  ]);
+                } else {
+                  // if it exists, update quantity and not add it
+                  const newCartProducts = props.cartProducts.map((prod) => {
+                    if (prod.product.id === product.id) {
+                      return {
+                        ...prod,
+                        quantity: (prod.quantity += productQuantity),
+                      };
+                    } else {
+                      return prod;
+                    }
+                  });
+                  props.setCartProducts(newCartProducts);
+                }
+              }}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
@@ -81,6 +117,8 @@ CheckoutModal.propTypes = {
   isOpen: PropTypes.bool,
   closeModal: PropTypes.func,
   productID: PropTypes.string,
+  setCartProducts: PropTypes.func,
+  cartProducts: PropTypes.array,
 };
 
 export default CheckoutModal;
