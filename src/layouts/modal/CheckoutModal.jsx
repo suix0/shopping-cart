@@ -68,6 +68,8 @@ const CheckoutModal = (props) => {
             <InputField
               productQuantity={productQuantity}
               setProductQuantity={setProductQuantity}
+              isCheckout={false}
+              id={null}
             ></InputField>
             <button
               onClick={() =>

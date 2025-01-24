@@ -1,7 +1,12 @@
 import PropTypes from "prop-types";
 import ProductCheckout from "../../components/product/ProductCheckout";
 
-const CheckoutCart = ({ checkout, setCheckout, cartProducts }) => {
+const CheckoutCart = ({
+  checkout,
+  setCheckout,
+  cartProducts,
+  setProductQuantity,
+}) => {
   // Disable scroll when checkout cart opens
   if (checkout) {
     document.body.style.overflow = "hidden";
@@ -17,7 +22,11 @@ const CheckoutCart = ({ checkout, setCheckout, cartProducts }) => {
     >
       <div>
         {cartProducts.map((product) => (
-          <ProductCheckout key={crypto.randomUUID()} cartProducts={product} />
+          <ProductCheckout
+            key={product.id}
+            cartProducts={product}
+            setProductQuantity={setProductQuantity}
+          />
         ))}
       </div>
       <button onClick={() => setCheckout(false)}>Continute Shopping</button>
@@ -29,5 +38,6 @@ CheckoutCart.propTypes = {
   checkout: PropTypes.bool,
   setCheckout: PropTypes.func,
   cartProducts: PropTypes.array,
+  setProductQuantity: PropTypes.func,
 };
 export default CheckoutCart;
