@@ -73,10 +73,13 @@ const CheckoutModal = (props) => {
             ></InputField>
             <button
               onClick={() => {
+                // Check if the product in modal exists in cart before
+                // Adding it to the cart
                 const objExists = props.cartProducts.find(
                   (prod) => prod.product.id === product.id
                 );
                 if (objExists === undefined) {
+                  // It doesn't exist, so add product in cart
                   props.setCartProducts([
                     ...props.cartProducts,
                     {
@@ -86,7 +89,7 @@ const CheckoutModal = (props) => {
                     },
                   ]);
                 } else {
-                  // if it exists, update quantity
+                  // if it exists, update quantity and not add it
                   const newCartProducts = props.cartProducts.map((prod) => {
                     if (prod.product.id === product.id) {
                       return {
