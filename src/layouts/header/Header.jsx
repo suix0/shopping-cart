@@ -15,6 +15,7 @@ const Header = ({ checkout, isModalOpen, setCheckout }) => {
           alt="Cart button for opening checkout cart"
           className="w-6 cursor-pointer"
           onClick={setCheckout}
+          role="button"
         />
       </div>
       <Navigation></Navigation>

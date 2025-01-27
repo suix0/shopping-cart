@@ -1,0 +1,62 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`product checkout > renders product checkout 1`] = `
+<div>
+  <div>
+    <img
+      alt=""
+      src=""
+    />
+    <div>
+      <div>
+        <p>
+          Mock 1
+        </p>
+        <p>
+          $
+          15.99
+        </p>
+        <div>
+          <div
+            id="1"
+          >
+            <p>
+              Quantity
+            </p>
+            <div
+              class="inline-flex border justify-around w-20 p-[4px]"
+            >
+              <button
+                class="false select-none"
+                id="1"
+              >
+                -
+              </button>
+              <input
+                class="w-full text-center outline-none"
+                id="1"
+                type="text"
+                value="5"
+              />
+              <button
+                class="select-none"
+                id="1"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <img
+            alt=""
+            src=""
+          />
+        </div>
+      </div>
+      <p>
+        $
+        79.95
+      </p>
+    </div>
+  </div>
+</div>
+`;
