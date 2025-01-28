@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-clr: #222831;
+  --secondary-clr: #393e46;
+  --tertiary-clr: #00adb5;
+  --last-clr: #eeeeee;
+  --tw-text-opacity: 1;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  background-color: var(--last-clr);
+}

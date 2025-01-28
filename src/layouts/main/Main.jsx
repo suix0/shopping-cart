@@ -85,29 +85,30 @@ const Main = ({ products, modal, setModal, checkout, setCheckout }) => {
   };
 
   return (
-    <div className="flex relative">
-      <div
-        className={`mx-72 my-20 flex gap-10 flex ${
-          modal && "overflow-y-hidden"
-        } ${checkout && "pointer-events-none blur-[1px] select-none"}`}
-      >
-        <Outlet
-          context={{
-            products: products,
-            modal: modal,
-            setModal: setModal,
-            cartProducts: cartProducts,
-            setCartProducts: setCartProducts,
-          }}
-        ></Outlet>
-      </div>
+    <>
+      {/* <div
+        className={`mx-72 gap-10 flex ${modal && "overflow-y-hidden"} ${
+          checkout && "pointer-events-none blur-[1px] select-none"
+        }`}
+      > */}
+      <Outlet
+        context={{
+          products: products,
+          modal: modal,
+          setModal: setModal,
+          cartProducts: cartProducts,
+          setCartProducts: setCartProducts,
+          checkout: checkout,
+        }}
+      ></Outlet>
+      {/* </div> */}
       <CheckoutCart
         checkout={checkout}
         setCheckout={setCheckout}
         cartProducts={cartProducts}
         setProductQuantity={setProductQuantity}
       ></CheckoutCart>
-    </div>
+    </>
   );
 };
 

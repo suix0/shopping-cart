@@ -1,21 +1,25 @@
+import { NavLink } from "react-router-dom";
+
 const Home = () => {
   return (
-    <>
-      <div className="flex flex-col gap-10 justify-center mb-[10%]">
-        <p className="text-4xl font-bold italic">Welcome to the Fake Store</p>{" "}
-        <p className="text-3xl">
+    <div className="flex relative mx-72 gap-10 items-center h-full">
+      <div className="flex flex-col gap-10 justify-center">
+        <p className="text-3xl font-bold italic">Welcome to the Fake Store</p>{" "}
+        <p className="text-2xl">
           Although the store is fake, we hope you have a good time browsing our
           products.
         </p>
-        <p className="self-center text-3xl mt-10">Shop now</p>
+        <NavLink className="self-center text-2xl mt-10" to="/catalog">
+          Shop now
+        </NavLink>
       </div>
       <img
         src="/shopping.jpg"
         alt="Girl shopping stock image"
-        className="max-w-[750px] rounded-3xl"
+        className="max-w-[650px] h-[500px] rounded-3xl"
         loading="eager"
       />
-    </>
+    </div>
   );
 };
 
