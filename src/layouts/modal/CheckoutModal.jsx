@@ -32,7 +32,7 @@ const CheckoutModal = (props) => {
 
   return (
     <div
-      className={`transition-all h-max fixed inset-60 bg-primary-clr rounded-2xl text-last-clr ${
+      className={`transition-all h-max fixed inset-60 bg-secondary-clr rounded-2xl text-last-clr ${
         props.isOpen
           ? "opacity-1 -translate-y-0"
           : "invisible h-[0] opacity-0 -translate-y-96"
@@ -59,6 +59,9 @@ const CheckoutModal = (props) => {
             {product && product.rating.count} reviews
           </p>
         </div>
+        <p className={`font-thin text-md ${loading && "invisible"}`}>
+          Quantity
+        </p>
         <div className={`flex flex-col gap-4 ${loading && "invisible"}`}>
           <InputField
             productQuantity={productQuantity}

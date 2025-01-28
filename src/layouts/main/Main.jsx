@@ -89,6 +89,15 @@ const Main = ({
     }
   };
 
+  const deleteProduct = (e) => {
+    const productId = e.target.id;
+    const newCartProducts = cartProducts.filter(
+      (product) => product.id !== productId
+    );
+    console.log(newCartProducts);
+    setCartProducts(newCartProducts);
+  };
+
   return (
     <>
       <Outlet
@@ -106,6 +115,7 @@ const Main = ({
         setCheckout={setCheckout}
         cartProducts={cartProducts}
         setProductQuantity={setProductQuantity}
+        deleteProduct={deleteProduct}
       ></CheckoutCart>
     </>
   );

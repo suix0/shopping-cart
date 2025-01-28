@@ -5,12 +5,13 @@ const InputField = ({
   setProductQuantity,
   isCheckout = false,
   id = null,
+  itemId = null,
+  deleteProduct,
 }) => {
   return (
     // Modify the InputField component so that it behaves differently
     // for add-to-cart products
-    <div id={`${id !== null && id}`}>
-      <p className="font-light">Quantity</p>
+    <div id={`${id !== null && id}`} className="flex items-center gap-4">
       <div className="inline-flex justify-center border w-20 rounded-xl p-2 border-2">
         <button
           onClick={(e) =>
@@ -50,11 +51,10 @@ const InputField = ({
                 setProductQuantity(e, false, false, true);
               }
           }}
-          className={`w-full text-center outline-none ${
-            !isCheckout && "bg-primary-clr"
-          }`}
+          className="w-full text-center outline-none bg-secondary-clr"
           id={id}
         />
+
         <button
           onClick={(e) =>
             !isCheckout
@@ -67,6 +67,16 @@ const InputField = ({
           +
         </button>
       </div>
+      {isCheckout && (
+        <img
+          src="../../src/assets/delete.svg"
+          alt="delete icon"
+          className="w-8 h-8 cursor-pointer"
+          role="delete button"
+          onClick={deleteProduct}
+          id={itemId}
+        />
+      )}
     </div>
   );
 };
@@ -76,6 +86,8 @@ InputField.propTypes = {
   setProductQuantity: PropTypes.func,
   isCheckout: PropTypes.bool,
   id: PropTypes.number,
+  itemId: PropTypes.string,
+  deleteProduct: PropTypes.func,
 };
 
 export default InputField;
