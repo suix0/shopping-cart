@@ -10,8 +10,8 @@ const InputField = ({
     // Modify the InputField component so that it behaves differently
     // for add-to-cart products
     <div id={`${id !== null && id}`}>
-      <p>Quantity</p>
-      <div className="inline-flex border justify-around w-20 p-[4px]">
+      <p className="font-light">Quantity</p>
+      <div className="inline-flex justify-center border w-20 rounded-xl p-2 border-2">
         <button
           onClick={(e) =>
             productQuantity > 1 && !isCheckout
@@ -50,7 +50,9 @@ const InputField = ({
                 setProductQuantity(e, false, false, true);
               }
           }}
-          className="w-full text-center outline-none"
+          className={`w-full text-center outline-none ${
+            !isCheckout && "bg-primary-clr"
+          }`}
           id={id}
         />
         <button
