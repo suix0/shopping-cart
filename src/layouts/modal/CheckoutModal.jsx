@@ -111,6 +111,7 @@ const CheckoutModal = (props) => {
                   });
                   props.setCartProducts(newCartProducts);
                 }
+                props.closeModal();
               }}
               className="w-full bg-blue-400 p-2 rounded-lg"
             >

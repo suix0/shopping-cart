@@ -16,10 +16,15 @@ const CheckoutCart = ({
 
   return (
     <div
-      className={`flex flex-col items-center fixed right-0 p-4 bg-gray-400 w-[400px] transition-all ease-out ${
+      className={`flex flex-col items-center fixed right-0 p-4 bg-gray-400 w-[400px] h-full transition-all ease-out ${
         checkout ? "translate-x-0" : "translate-x-[1000px]"
       }`}
     >
+      <div className="flex justify-between w-full">
+        <p className="font-light">Product</p>
+        <p className="font-light">Checkout</p>
+      </div>
+      <hr className="w-full" />
       <div>
         {cartProducts.map((product) => (
           <ProductCheckout
