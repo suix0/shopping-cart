@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="flex relative mx-72 gap-10 items-center h-full">
+    <div className="flex justify-between items-center relative mx-72 my-auto gap-10">
       <div className="flex flex-col gap-10 justify-center">
         <p className="text-3xl font-bold italic">Welcome to the Fake Store</p>{" "}
         <p className="text-2xl">

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const ProductCard = ({ product, clickHandler, id, isModalOpen }) => {
   return (
     <div
-      className={`flex flex-col items-center text-sm border p-4 cursor-pointer ${
+      className={`flex flex-col items-center text-sm border border-black border-solid p-4 cursor-pointer rounded-3xl ${
         isModalOpen && "pointer-events-none"
       }`}
       onClick={clickHandler}
@@ -11,15 +11,20 @@ const ProductCard = ({ product, clickHandler, id, isModalOpen }) => {
     >
       <img
         src={product.image}
-        className="w-32 h-32"
+        // better cropped as long as quality is maintained
+        className="w-full h-60 object-cover"
         onClick={clickHandler}
         id={id}
       ></img>
-      <p onClick={clickHandler} id={id}>
+      <p
+        onClick={clickHandler}
+        id={id}
+        className="self-start text-lg font-medium"
+      >
         {product.title}
       </p>
       <div
-        className="flex flex-col items-start mt-auto"
+        className="flex flex-col justify-center w-full mt-auto"
         onClick={clickHandler}
         id={id}
       >
@@ -31,14 +36,14 @@ const ProductCard = ({ product, clickHandler, id, isModalOpen }) => {
             onClick={clickHandler}
             id={id}
           />
-          <p onClick={clickHandler} id={id}>
+          <p onClick={clickHandler} id={id} className="text-lg font-light">
             {product.rating.rate}
           </p>
         </div>
-        <p onClick={clickHandler} id={id}>
+        <p onClick={clickHandler} id={id} className="text-lg">
           {product.rating.count} reviews
         </p>
-        <p onClick={clickHandler} id={id}>
+        <p onClick={clickHandler} id={id} className="text-lg">
           ${product.price}
         </p>
       </div>

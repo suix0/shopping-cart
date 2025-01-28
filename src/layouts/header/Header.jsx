@@ -6,10 +6,10 @@ const Header = ({ checkout, isModalOpen, setCheckout }) => {
     <header
       className={`${isModalOpen && "pointer-events-none"} ${
         checkout && "pointer-events-none blur-[1px]"
-      } bg-tertiary-clr flex flex-col py-4 gap-4`}
+      } bg-primary-clr flex flex-col py-4 gap-4`}
     >
       <div className="flex justify-between mx-72">
-        <p className="text-3xl text-gray-700">Fake Store</p>
+        <p className="text-3xl text-white">Fake Store</p>
         <img
           src="../src/assets/cart.svg"
           alt="Cart button for opening checkout cart"
