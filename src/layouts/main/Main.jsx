@@ -100,6 +100,7 @@ const Main = ({
       (product) => product.id !== productId
     );
     setCartProducts(newCartProducts);
+    localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
   };
 
   return (
