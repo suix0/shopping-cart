@@ -15,6 +15,23 @@ function App() {
   // Cart products, moved up in App.jsx
   const [cartProducts, setCartProducts] = useState([]);
 
+  // Window dimensions
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  // If localStorage data exists, store it
+  const localStorageCartProducts = JSON.parse(
+    localStorage.getItem("cartProducts")
+  );
+
+  if (localStorageCartProducts !== null) {
+    if (cartProducts.length === 0) {
+      setCartProducts(JSON.parse(localStorage.getItem("cartProducts")));
+    }
+  }
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -31,12 +48,33 @@ function App() {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    let ignore = false;
+
+    const handleResize = () => {
+      if (!ignore) {
+        setWindowDimensions({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      ignore = true;
+    };
+  });
+
   return (
     <>
       <Header
         isModalOpen={modal}
         checkout={checkout}
         cartProducts={cartProducts}
+        windowDimensions={windowDimensions}
         setCheckout={() => setCheckout(true)}
       ></Header>
       <Main
@@ -47,6 +85,7 @@ function App() {
         setCheckout={setCheckout}
         cartProducts={cartProducts}
         setCartProducts={setCartProducts}
+        windowDimensions={windowDimensions}
       ></Main>
     </>
   );

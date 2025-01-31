@@ -31,7 +31,7 @@ const Jewelery = () => {
         cartProducts={cartProducts}
         setCartProducts={setCartProducts}
       ></CheckoutModal>
-      <div className="grid grid-cols-4 gap-4 mx-72 gap-10 mb-24 ">
+      <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4 xl:mx-72 xs:mx-10 gap-10 mb-24">
         {products
           .filter((product) => product.category === "jewelery")
           .map((product) => (

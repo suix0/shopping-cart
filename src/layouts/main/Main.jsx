@@ -10,6 +10,7 @@ const Main = ({
   setCheckout,
   cartProducts,
   setCartProducts,
+  windowDimensions,
 }) => {
   /* disable scrolling when opening modal
   it was nice to discover that it was ok to manipulate the body
@@ -94,7 +95,6 @@ const Main = ({
     const newCartProducts = cartProducts.filter(
       (product) => product.id !== productId
     );
-    console.log(newCartProducts);
     setCartProducts(newCartProducts);
   };
 
@@ -108,6 +108,7 @@ const Main = ({
           cartProducts: cartProducts,
           setCartProducts: setCartProducts,
           checkout: checkout,
+          windowDimensions: windowDimensions,
         }}
       ></Outlet>
       <CheckoutCart
@@ -129,6 +130,10 @@ Main.propTypes = {
   setCheckout: PropTypes.func,
   cartProducts: PropTypes.array,
   setCartProducts: PropTypes.func,
+  windowDimensions: PropTypes.shape({
+    width: PropTypes.number,
+    height: PropTypes.number,
+  }),
 };
 
 export default Main;
