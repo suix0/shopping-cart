@@ -21,7 +21,7 @@ const Header = ({
           <div className="flex justify-evenly">
             <div className="relative">
               <img
-                src="../src/assets/cart.svg"
+                src="/assets/cart.svg"
                 alt="Cart button for opening checkout cart"
                 className="w-8 cursor-pointer"
                 onClick={setCheckout}
@@ -47,7 +47,7 @@ const Header = ({
             <p className="text-3xl text-white">Fake Store</p>
             <div className="relative">
               <img
-                src="../src/assets/cart.svg"
+                src="/assets/cart.svg"
                 alt="Cart button for opening checkout cart"
                 className="w-8 cursor-pointer"
                 onClick={setCheckout}

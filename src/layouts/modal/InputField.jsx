@@ -69,7 +69,7 @@ const InputField = ({
       </div>
       {isCheckout && (
         <img
-          src="../../src/assets/delete.svg"
+          src="/assets/delete.svg"
           alt="delete icon"
           className="w-8 h-8 cursor-pointer"
           role="delete button"

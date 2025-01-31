@@ -21,7 +21,7 @@ const Navigation = ({ windowDimensions }) => {
               alt="close menu button icon"
               className="w-8"
               role="close menu button"
-              src="../../src/assets/close.svg"
+              src="/assets/close.svg"
             ></img>
             <NavLink
               to="/"
@@ -78,7 +78,7 @@ const Navigation = ({ windowDimensions }) => {
             </NavLink>
           </div>
           <img
-            src="../../src/assets/menu.svg"
+            src="/assets/menu.svg"
             className="w-8"
             alt="menu icon button"
             role="menu button"

@@ -55,7 +55,7 @@ const CheckoutModal = (props) => {
         </p>
         <div className="flex items-center">
           <img
-            src="../src/assets/rating.svg"
+            src="/assets/rating.svg"
             alt="Star symbol representing rating"
             className={`w-8 ${loading && "invisible"}`}
           />

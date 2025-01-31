@@ -30,7 +30,7 @@ const ProductCard = ({ product, clickHandler, id, isModalOpen }) => {
       >
         <div className="flex items-center" onClick={clickHandler} id={id}>
           <img
-            src="../src/assets/rating.svg"
+            src="/assets/rating.svg"
             alt="Star symbol representing rating"
             className="w-8"
             onClick={clickHandler}
