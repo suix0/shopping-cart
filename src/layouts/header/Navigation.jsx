@@ -23,22 +23,57 @@ const Navigation = ({ windowDimensions }) => {
               role="close menu button"
               src="../../src/assets/close.svg"
             ></img>
-            <NavLink to="/" onClick={() => setMenuOpen(false)}>
+            <NavLink
+              to="/"
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive ? "underline" : "hover:underline"
+              }
+            >
               Home
             </NavLink>
-            <NavLink to="catalog" onClick={() => setMenuOpen(false)}>
+            <NavLink
+              to="catalog"
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive ? "underline" : "hover:underline"
+              }
+            >
               Catalog
             </NavLink>
-            <NavLink to="electronics" onClick={() => setMenuOpen(false)}>
+            <NavLink
+              to="electronics"
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive ? "underline" : "hover:underline"
+              }
+            >
               Electronics
             </NavLink>
-            <NavLink to="jewelery" onClick={() => setMenuOpen(false)}>
+            <NavLink
+              to="jewelery"
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive ? "underline" : "hover:underline"
+              }
+            >
               Jewelry
             </NavLink>
-            <NavLink to="menClothings" onClick={() => setMenuOpen(false)}>
+            <NavLink
+              to="menClothings"
+              onClick={() => setMenuOpen(false)}
+              className={`${({ isActive }) =>
+                isActive ? "active" : "inactive"}`}
+            >
               Men&apos;s Clothing
             </NavLink>
-            <NavLink to="womenClothings" onClick={() => setMenuOpen(false)}>
+            <NavLink
+              to="womenClothings"
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive ? "underline" : "hover:underline"
+              }
+            >
               Women&apos;s Clothing
             </NavLink>
           </div>
@@ -52,12 +87,54 @@ const Navigation = ({ windowDimensions }) => {
         </>
       ) : (
         <div className="flex gap-10 justify-center text-white">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="catalog">Catalog</NavLink>
-          <NavLink to="electronics">Electronics</NavLink>
-          <NavLink to="jewelery">Jewelry</NavLink>
-          <NavLink to="menClothings">Men&apos;s Clothing</NavLink>
-          <NavLink to="womenClothings">Women&apos;s Clothing</NavLink>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "underline" : "hover:underline"
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="catalog"
+            className={({ isActive }) =>
+              isActive ? "underline" : "hover:underline"
+            }
+          >
+            Catalog
+          </NavLink>
+          <NavLink
+            to="electronics"
+            className={({ isActive }) =>
+              isActive ? "underline" : "hover:underline"
+            }
+          >
+            Electronics
+          </NavLink>
+          <NavLink
+            to="jewelery"
+            className={({ isActive }) =>
+              isActive ? "underline" : "hover:underline"
+            }
+          >
+            Jewelry
+          </NavLink>
+          <NavLink
+            to="menClothings"
+            className={({ isActive }) =>
+              isActive ? "underline" : "hover:underline"
+            }
+          >
+            Men&apos;s Clothing
+          </NavLink>
+          <NavLink
+            to="womenClothings"
+            className={({ isActive }) =>
+              isActive ? "underline" : "hover:underline"
+            }
+          >
+            Women&apos;s Clothing
+          </NavLink>
         </div>
       )}
     </>
