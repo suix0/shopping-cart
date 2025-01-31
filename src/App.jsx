@@ -56,7 +56,6 @@ function App() {
       ignore = true;
     };
   });
-  console.log(windowDimensions);
 
   return (
     <>
@@ -64,6 +63,7 @@ function App() {
         isModalOpen={modal}
         checkout={checkout}
         cartProducts={cartProducts}
+        windowDimensions={windowDimensions}
         setCheckout={() => setCheckout(true)}
       ></Header>
       <Main
