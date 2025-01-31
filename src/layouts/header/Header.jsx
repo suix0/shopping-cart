@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
 import PropTypes from "prop-types";
 
@@ -17,7 +18,9 @@ const Header = ({
           } bg-primary-clr flex justify-evenly py-4 gap-4`}
         >
           <Navigation windowDimensions={windowDimensions}></Navigation>
-          <p className="text-3xl text-white">Fake Store</p>
+          <Link to="/" className="text-3xl text-white cursor-pointer">
+            Fake Store
+          </Link>
           <div className="flex justify-evenly">
             <div className="relative">
               <img
@@ -44,7 +47,9 @@ const Header = ({
           } bg-primary-clr flex flex-col py-4 gap-4`}
         >
           <div className="flex justify-between mx-72">
-            <p className="text-3xl text-white">Fake Store</p>
+            <Link to="/" className="text-3xl text-white cursor-pointer">
+              Fake Store
+            </Link>
             <div className="relative">
               <img
                 src="/assets/cart.svg"
