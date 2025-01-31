@@ -54,7 +54,7 @@ const Header = ({
               <img
                 src="/assets/cart.svg"
                 alt="Cart button for opening checkout cart"
-                className="w-8 cursor-pointer"
+                className="w-8 cursor-pointer hover:scale-110 transition-all"
                 onClick={setCheckout}
                 role="button"
               />

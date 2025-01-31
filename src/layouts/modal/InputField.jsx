@@ -71,7 +71,7 @@ const InputField = ({
         <img
           src="/assets/delete.svg"
           alt="delete icon"
-          className="w-8 h-8 cursor-pointer"
+          className="w-8 h-8 cursor-pointer hover:scale-110 transition-all"
           role="delete button"
           onClick={deleteProduct}
           id={itemId}
