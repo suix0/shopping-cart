@@ -15,6 +15,12 @@ function App() {
   // Cart products, moved up in App.jsx
   const [cartProducts, setCartProducts] = useState([]);
 
+  // Window dimensions
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -30,6 +36,27 @@ function App() {
     };
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    let ignore = false;
+
+    const handleResize = () => {
+      if (!ignore) {
+        setWindowDimensions({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      ignore = true;
+    };
+  });
+  console.log(windowDimensions);
 
   return (
     <>
@@ -47,6 +74,7 @@ function App() {
         setCheckout={setCheckout}
         cartProducts={cartProducts}
         setCartProducts={setCartProducts}
+        windowDimensions={windowDimensions}
       ></Main>
     </>
   );
