@@ -7,12 +7,12 @@ const Home = () => {
   return (
     <>
       {windowDimensions.width <= 1300 ? (
-        <div className="flex flex-col items-center relative mx-72 my-auto gap-10">
+        <div className="flex flex-col items-center relative lg:mx-72 my-auto gap-10">
           <div className="flex flex-col gap-4 justify-center items-center">
             <img
               src="/shopping.jpg"
               alt="Girl shopping stock image"
-              className="2xl:max-w-[650px] max-w-[550px] 2xl:h-[500px] lg:h-max object-cover rounded-3xl "
+              className="2xl:max-w-[650px] max-w-[550px] 2xl:h-[500px] md:w-[550px] xs:w-[320px] lg:h-max object-cover rounded-3xl"
               loading="eager"
             />
             <p className="text-3xl font-bold italic">

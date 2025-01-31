@@ -32,16 +32,20 @@ const CheckoutModal = (props) => {
 
   return (
     <div
-      className={`transition-all h-max fixed inset-60 bg-secondary-clr rounded-2xl text-last-clr ${
+      className={`transition-all h-max fixed xs:inset-40 lg:inset-60 bg-secondary-clr rounded-2xl text-last-clr ${
         props.isOpen
           ? "opacity-1 -translate-y-0"
           : "invisible h-[0] opacity-0 -translate-y-96"
-      } ${loading && "blur-sm"} flex items-center p-4 gap-4`}
+      } ${
+        loading && "blur-sm"
+      } flex lg:flex-row xs:flex-col items-center p-4 gap-4 xs:left-4 xs:right-4 xs:top-0`}
     >
       <img
         src={product && product.image}
         alt="Product image"
-        className={`object-contain w-full h-96 ${loading && "invisible"}`}
+        className={`object-contain w-full lg:h-96 xs:h-72 ${
+          loading && "invisible"
+        }`}
       />
       <div className="flex flex-col gap-4">
         <p className="font-bold text-2xl">{product && product.title}</p>

@@ -9,6 +9,9 @@ export default {
         "tertiary-clr": "var(--tertiary-clr)",
         "last-clr": "var(--last-clr)",
       },
+      screens: {
+        xs: "320px",
+      },
     },
   },
   plugins: [],
