@@ -26,7 +26,7 @@ const CheckoutCart = ({
         <p className="font-light">Total</p>
       </div>
       <hr className="w-full" />
-      <div className="flex flex-col gap-4 w-full mt-4">
+      <div className="flex flex-col gap-4 w-full mt-4 mb-4">
         {cartProducts.map((product) => (
           <ProductCheckout
             key={product.id}
@@ -36,9 +36,23 @@ const CheckoutCart = ({
           />
         ))}
       </div>
+      <div className="flex flex-col justify-between w-full mt-auto gap-4">
+        <hr className="w-full" />
+        <div className="flex justify-between">
+          <p className="text-lg font-bold">Subtotal</p>
+          <p className="font-thin">
+            $
+            {cartProducts.reduce(
+              (total, currentProduct) =>
+                total + currentProduct.product.price * currentProduct.quantity,
+              0
+            )}
+          </p>
+        </div>
+      </div>
       <button
         onClick={() => setCheckout(false)}
-        className="mt-auto border w-full rounded-xl p-1 bg-primary-clr text-last-clr mt-4"
+        className="border w-full rounded-xl p-1 bg-primary-clr text-last-clr mt-4"
       >
         Continute Shopping
       </button>

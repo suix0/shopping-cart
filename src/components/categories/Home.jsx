@@ -6,7 +6,7 @@ const Home = () => {
       <div className="flex flex-col gap-10 justify-center">
         <p className="text-3xl font-bold italic">Welcome to the Fake Store</p>{" "}
         <p className="text-2xl">
-          Although the store is fake, we hope you have a good time browsing our
+          Although the store is fake, we hope you have a good time browsing the
           products.
         </p>
         <NavLink className="self-center text-2xl mt-10" to="/catalog">
