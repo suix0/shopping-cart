@@ -32,13 +32,13 @@ const CheckoutModal = (props) => {
 
   return (
     <div
-      className={`transition-all h-max fixed xs:inset-40 lg:inset-60 bg-secondary-clr rounded-2xl text-last-clr ${
+      className={`transition-all lg:h-max xs:h-[60vh] fixed xs:inset-40 lg:inset-60 bg-secondary-clr rounded-2xl text-last-clr ${
         props.isOpen
           ? "opacity-1 -translate-y-0"
           : "invisible h-[0] opacity-0 -translate-y-96"
       } ${
         loading && "blur-sm"
-      } flex lg:flex-row xs:flex-col items-center p-4 gap-4 xs:left-4 xs:right-4 xs:top-0`}
+      } flex xl:flex-row xs:flex-col items-center p-4 gap-4 xs:left-4 xs:right-4 xs:top-30 overflow-auto xs:w-[80vw] lg:w-auto m-auto`}
     >
       <img
         src={product && product.image}
@@ -96,14 +96,32 @@ const CheckoutModal = (props) => {
                 );
                 if (objExists === undefined) {
                   // It doesn't exist, so add product in cart
+                  const newCartProduct = {
+                    product: product,
+                    quantity: productQuantity,
+                    id: crypto.randomUUID(),
+                  };
                   props.setCartProducts([
                     ...props.cartProducts,
-                    {
-                      product: product,
-                      quantity: productQuantity,
-                      id: crypto.randomUUID(),
-                    },
+                    newCartProduct,
                   ]);
+                  const localStorageCartProducts = JSON.parse(
+                    localStorage.getItem("cartProducts")
+                  );
+                  if (localStorageCartProducts !== null) {
+                    localStorage.setItem(
+                      "cartProducts",
+                      JSON.stringify([
+                        ...localStorageCartProducts,
+                        newCartProduct,
+                      ])
+                    );
+                  } else {
+                    localStorage.setItem(
+                      "cartProducts",
+                      JSON.stringify([newCartProduct])
+                    );
+                  }
                 } else {
                   // if it exists, update quantity and not add it
                   const newCartProducts = props.cartProducts.map((prod) => {
@@ -116,6 +134,11 @@ const CheckoutModal = (props) => {
                       return prod;
                     }
                   });
+                  localStorage.removeItem("cartProducts");
+                  localStorage.setItem(
+                    "cartProducts",
+                    JSON.stringify(newCartProducts)
+                  );
                   props.setCartProducts(newCartProducts);
                 }
                 props.closeModal();

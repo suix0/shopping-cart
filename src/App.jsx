@@ -21,6 +21,17 @@ function App() {
     height: window.innerHeight,
   });
 
+  // If localStorage data exists, store it
+  const localStorageCartProducts = JSON.parse(
+    localStorage.getItem("cartProducts")
+  );
+
+  if (localStorageCartProducts !== null) {
+    if (cartProducts.length === 0) {
+      setCartProducts(JSON.parse(localStorage.getItem("cartProducts")));
+    }
+  }
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {

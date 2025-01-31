@@ -17,7 +17,7 @@ const CheckoutCart = ({
 
   return (
     <div
-      className={`flex flex-col items-center fixed right-0 p-4 bg-secondary-clr w-[400px] h-full transition-all ease-out text-last-clr overflow-auto ${
+      className={`flex flex-col items-center fixed right-0 p-4 bg-secondary-clr md:w-[400px] xs:w-[90vw] h-full transition-all ease-out text-last-clr overflow-auto ${
         checkout ? "translate-x-0" : "translate-x-[1000px]"
       }`}
     >

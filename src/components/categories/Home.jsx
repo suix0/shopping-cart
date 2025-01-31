@@ -22,7 +22,10 @@ const Home = () => {
               Although the store is fake, we hope you have a good time browsing
               the products.
             </p>
-            <NavLink className="self-center text-2xl" to="/catalog">
+            <NavLink
+              className="self-center text-2xl underline italic"
+              to="/catalog"
+            >
               Shop now
             </NavLink>
           </div>
@@ -37,7 +40,10 @@ const Home = () => {
               Although the store is fake, we hope you have a good time browsing
               the products.
             </p>
-            <NavLink className="self-center text-2xl mt-10" to="/catalog">
+            <NavLink
+              className="self-center text-2xl mt-10 underline italic"
+              to="/catalog"
+            >
               Shop now
             </NavLink>
           </div>
