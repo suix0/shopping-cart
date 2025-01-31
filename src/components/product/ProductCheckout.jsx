@@ -7,11 +7,6 @@ const ProductCheckout = ({
   setProductQuantity,
   deleteProduct,
 }) => {
-  // const updateProductQuantity = (quantity) => {
-  //   setProductQuantity(quantity);
-  //   localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
-  // };
-
   return (
     <div className="flex justify-between">
       <div className="flex gap-4">

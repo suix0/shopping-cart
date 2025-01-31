@@ -42,11 +42,14 @@ const CheckoutCart = ({
           <p className="text-lg font-bold">Subtotal</p>
           <p className="font-thin">
             $
-            {cartProducts.reduce(
-              (total, currentProduct) =>
-                total + currentProduct.product.price * currentProduct.quantity,
-              0
-            )}
+            {cartProducts
+              .reduce(
+                (total, currentProduct) =>
+                  total +
+                  currentProduct.product.price * currentProduct.quantity,
+                0
+              )
+              .toFixed(2)}
           </p>
         </div>
       </div>

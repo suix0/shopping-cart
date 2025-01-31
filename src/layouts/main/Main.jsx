@@ -42,6 +42,7 @@ const Main = ({
         }
       });
       setCartProducts(newCartProducts);
+      localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
     } else if (changeOnValueChange) {
       const id = Number(e.target.id);
       const newValue = Number(e.target.value);
@@ -56,6 +57,7 @@ const Main = ({
         }
       });
       setCartProducts(newCartProducts);
+      localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
     } else if (changeOnValueEmpty) {
       const id = Number(e.target.id);
       const newCartProducts = cartProducts.map((cartProduct) => {
@@ -69,6 +71,7 @@ const Main = ({
         }
       });
       setCartProducts(newCartProducts);
+      localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
     } else {
       // for changing quantity using buttons
       const id = Number(e.target.id);
@@ -87,6 +90,7 @@ const Main = ({
         }
       });
       setCartProducts(newCartProducts);
+      localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
     }
   };
 
