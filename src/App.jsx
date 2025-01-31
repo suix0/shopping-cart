@@ -12,6 +12,9 @@ function App() {
   // For checkout cart management
   const [checkout, setCheckout] = useState(false);
 
+  // Cart products, moved up in App.jsx
+  const [cartProducts, setCartProducts] = useState([]);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -33,6 +36,7 @@ function App() {
       <Header
         isModalOpen={modal}
         checkout={checkout}
+        cartProducts={cartProducts}
         setCheckout={() => setCheckout(true)}
       ></Header>
       <Main
@@ -41,6 +45,8 @@ function App() {
         setModal={setModal}
         checkout={checkout}
         setCheckout={setCheckout}
+        cartProducts={cartProducts}
+        setCartProducts={setCartProducts}
       ></Main>
     </>
   );

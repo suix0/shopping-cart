@@ -1,29 +1,39 @@
 import InputField from "../../layouts/modal/InputField";
 import PropTypes from "prop-types";
+// import del from ".../assets/delete.svg"
 
-const ProductCheckout = ({ cartProducts, setProductQuantity }) => {
+const ProductCheckout = ({
+  cartProducts,
+  setProductQuantity,
+  deleteProduct,
+}) => {
   return (
-    <div>
-      <img src="" alt="" />
-      <div>
+    <div className="flex justify-between">
+      <div className="flex gap-4">
+        <img
+          src={cartProducts.product.image}
+          alt={cartProducts.product.title}
+          className="w-24"
+        />
         <div>
           <p>{cartProducts.product.title}</p>
           <p>${cartProducts.product.price}</p>
-          <div>
+          <p className="font-thin text-md">Quantity</p>
+          <div className="flex items-center">
             <InputField
               productQuantity={cartProducts.quantity}
               setProductQuantity={setProductQuantity}
               isCheckout={true}
               id={cartProducts.product.id}
+              itemId={cartProducts.id}
+              deleteProduct={deleteProduct}
             ></InputField>
-            <img src="" alt="" />
           </div>
         </div>
-        <p>
-          $
-          {`${(cartProducts.product.price * cartProducts.quantity).toFixed(2)}`}
-        </p>
       </div>
+      <p>
+        ${`${(cartProducts.product.price * cartProducts.quantity).toFixed(2)}`}
+      </p>
     </div>
   );
 };
@@ -36,6 +46,7 @@ ProductCheckout.propTypes = {
     quantity: PropTypes.number,
   }),
   setProductQuantity: PropTypes.func,
+  deleteProduct: PropTypes.func,
 };
 
 export default ProductCheckout;

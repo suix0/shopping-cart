@@ -6,7 +6,7 @@ import { useState } from "react";
 const WomenClothings = () => {
   const [selectedProductID, setSelectedProductID] = useState(null);
 
-  let { products, modal, setModal, cartProducts, setCartProducts } =
+  let { products, modal, setModal, cartProducts, setCartProducts, checkout } =
     useOutletContext();
 
   if (products === null) {
@@ -19,7 +19,11 @@ const WomenClothings = () => {
   };
 
   return (
-    <>
+    <div
+      className={`${modal && "overflow-y-hidden"} ${
+        checkout && "pointer-events-none blur-[1px] select-none"
+      } bg-last-clr mt-24`}
+    >
       <CheckoutModal
         isOpen={modal}
         closeModal={() => setModal(false)}
@@ -27,23 +31,20 @@ const WomenClothings = () => {
         cartProducts={cartProducts}
         setCartProducts={setCartProducts}
       ></CheckoutModal>
-      <div>
-        <h1 className="text-center">Everything we can offer</h1>
-        <div className="grid grid-cols-4 gap-4">
-          {products
-            .filter((product) => product.category === "women's clothing")
-            .map((product) => (
-              <ProductCard
-                product={product}
-                key={product.id}
-                id={product.id}
-                clickHandler={checkoutModal}
-                isModalOpen={modal}
-              />
-            ))}
-        </div>
+      <div className="grid grid-cols-4 gap-4 mx-72 gap-10 mb-24 ">
+        {products
+          .filter((product) => product.category === "women's clothing")
+          .map((product) => (
+            <ProductCard
+              product={product}
+              key={product.id}
+              id={product.id}
+              clickHandler={checkoutModal}
+              isModalOpen={modal}
+            />
+          ))}
       </div>
-    </>
+    </div>
   );
 };
 

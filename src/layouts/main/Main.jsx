@@ -1,11 +1,16 @@
 import PropTypes from "prop-types";
 import { Outlet } from "react-router-dom";
 import CheckoutCart from "../checkout/CheckoutCart";
-import { useState } from "react";
 
-const Main = ({ products, modal, setModal, checkout, setCheckout }) => {
-  const [cartProducts, setCartProducts] = useState([]);
-
+const Main = ({
+  products,
+  modal,
+  setModal,
+  checkout,
+  setCheckout,
+  cartProducts,
+  setCartProducts,
+}) => {
   /* disable scrolling when opening modal
   it was nice to discover that it was ok to manipulate the body
   as we only do stuffs to the #root with React
@@ -84,30 +89,35 @@ const Main = ({ products, modal, setModal, checkout, setCheckout }) => {
     }
   };
 
+  const deleteProduct = (e) => {
+    const productId = e.target.id;
+    const newCartProducts = cartProducts.filter(
+      (product) => product.id !== productId
+    );
+    console.log(newCartProducts);
+    setCartProducts(newCartProducts);
+  };
+
   return (
-    <div className="flex relative">
-      <div
-        className={`mx-72 my-20 flex gap-10 flex ${
-          modal && "overflow-y-hidden"
-        } ${checkout && "pointer-events-none blur-[1px] select-none"}`}
-      >
-        <Outlet
-          context={{
-            products: products,
-            modal: modal,
-            setModal: setModal,
-            cartProducts: cartProducts,
-            setCartProducts: setCartProducts,
-          }}
-        ></Outlet>
-      </div>
+    <>
+      <Outlet
+        context={{
+          products: products,
+          modal: modal,
+          setModal: setModal,
+          cartProducts: cartProducts,
+          setCartProducts: setCartProducts,
+          checkout: checkout,
+        }}
+      ></Outlet>
       <CheckoutCart
         checkout={checkout}
         setCheckout={setCheckout}
         cartProducts={cartProducts}
         setProductQuantity={setProductQuantity}
+        deleteProduct={deleteProduct}
       ></CheckoutCart>
-    </div>
+    </>
   );
 };
 
@@ -117,6 +127,8 @@ Main.propTypes = {
   setModal: PropTypes.func,
   checkout: PropTypes.bool,
   setCheckout: PropTypes.func,
+  cartProducts: PropTypes.array,
+  setCartProducts: PropTypes.func,
 };
 
 export default Main;

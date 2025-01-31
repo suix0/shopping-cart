@@ -26,51 +26,63 @@ const CheckoutModal = (props) => {
       }
     };
     setLoading(true);
+    setProduct(null);
     fetchProductForCheckout();
   }, [props.productID]);
 
   return (
     <div
-      className={`transition-all h-max fixed inset-72 bg-white ${
+      className={`transition-all h-max fixed inset-60 bg-secondary-clr rounded-2xl text-last-clr ${
         props.isOpen
           ? "opacity-1 -translate-y-0"
           : "invisible h-[0] opacity-0 -translate-y-96"
-      } flex justify-center`}
+      } ${loading && "blur-sm"} flex items-center p-4 gap-4`}
     >
       <img
         src={product && product.image}
         alt="Product image"
-        className="w-20"
+        className={`object-contain w-full h-96 ${loading && "invisible"}`}
       />
-      <div>
-        <p>{product && product.title}</p>
+      <div className="flex flex-col gap-4">
+        <p className="font-bold text-2xl">{product && product.title}</p>
         <p>{product && product.description}</p>
+        <p className={`text-2xl ${loading && "invisible"}`}>
+          ${product && product.price}
+        </p>
         <div className="flex items-center">
           <img
             src="../src/assets/rating.svg"
             alt="Star symbol representing rating"
-            className="w-8"
+            className={`w-8 ${loading && "invisible"}`}
           />
-          <p>{product && product.rating.rate}</p>
+          <p className={`${loading && "invisible"}`}>
+            {product && product.rating.count} reviews
+          </p>
         </div>
-        <p>{product && product.rating.count} reviews</p>
-        <p>${product && product.price}</p>
-        <div className="flex flex-col gap-4">
-          <button
-            onClick={() => {
-              props.closeModal();
-              setProductQuantity(1);
-            }}
+        <p className={`font-thin text-md ${loading && "invisible"}`}>
+          Quantity
+        </p>
+        <div className={`flex flex-col gap-4 ${loading && "invisible"}`}>
+          <InputField
+            productQuantity={productQuantity}
+            setProductQuantity={setProductQuantity}
+            isCheckout={false}
+            id={null}
+          ></InputField>
+          <div
+            className={`flex flex-col items-start gap-4 ${
+              loading && "invisible"
+            }`}
           >
-            Close
-          </button>
-          <div className="flex flex-col items-start gap-4">
-            <InputField
-              productQuantity={productQuantity}
-              setProductQuantity={setProductQuantity}
-              isCheckout={false}
-              id={null}
-            ></InputField>
+            <button
+              onClick={() => {
+                props.closeModal();
+                setProductQuantity(1);
+              }}
+              className="w-full bg-red-500 p-2 rounded-lg"
+            >
+              Close
+            </button>
             <button
               onClick={() => {
                 // Check if the product in modal exists in cart before
@@ -102,7 +114,9 @@ const CheckoutModal = (props) => {
                   });
                   props.setCartProducts(newCartProducts);
                 }
+                props.closeModal();
               }}
+              className="w-full bg-blue-400 p-2 rounded-lg"
             >
               Add to Cart
             </button>
