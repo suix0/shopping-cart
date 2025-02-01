@@ -26,7 +26,10 @@ function App() {
     localStorage.getItem("cartProducts")
   );
 
-  if (localStorageCartProducts !== null) {
+  if (
+    localStorageCartProducts !== null &&
+    localStorageCartProducts.length > 0
+  ) {
     if (cartProducts.length === 0) {
       setCartProducts(JSON.parse(localStorage.getItem("cartProducts")));
     }

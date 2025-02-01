@@ -100,7 +100,11 @@ const Main = ({
       (product) => product.id !== productId
     );
     setCartProducts(newCartProducts);
-    localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
+    if (cartProducts.length === 0) {
+      localStorage.removeItem("cartProducts");
+    } else {
+      localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
+    }
   };
 
   return (

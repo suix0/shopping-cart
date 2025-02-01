@@ -13,7 +13,6 @@ const CheckoutModal = (props) => {
   useEffect(() => {
     const fetchProductForCheckout = async () => {
       try {
-        console.log(props.productID);
         const product = await fetch(
           `https://fakestoreapi.com/products/${Number(props.productID)}`
         );
