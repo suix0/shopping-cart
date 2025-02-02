@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import ProductCheckout from "../../components/product/ProductCheckout";
+import { useMemo } from "react";
 
 const CheckoutCart = ({
   checkout,
@@ -14,6 +15,16 @@ const CheckoutCart = ({
   } else {
     document.body.style.overflow = "auto";
   }
+
+  const cartTotal = useMemo(() => {
+    return cartProducts
+      .reduce(
+        (total, currentProduct) =>
+          total + currentProduct.product.price * currentProduct.quantity,
+        0
+      )
+      .toFixed(2);
+  }, [cartProducts]);
 
   return (
     <div
@@ -40,17 +51,7 @@ const CheckoutCart = ({
         <hr className="w-full" />
         <div className="flex justify-between">
           <p className="text-lg font-bold">Subtotal</p>
-          <p className="font-thin">
-            $
-            {cartProducts
-              .reduce(
-                (total, currentProduct) =>
-                  total +
-                  currentProduct.product.price * currentProduct.quantity,
-                0
-              )
-              .toFixed(2)}
-          </p>
+          <p className="font-thin">${cartTotal}</p>
         </div>
       </div>
       <button

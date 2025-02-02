@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import InputField from "../../layouts/modal/InputField";
 import PropTypes from "prop-types";
 // import del from ".../assets/delete.svg"
@@ -7,6 +8,10 @@ const ProductCheckout = ({
   setProductQuantity,
   deleteProduct,
 }) => {
+  const productTotal = useMemo(() => {
+    return (cartProducts.product.price * cartProducts.quantity).toFixed(2);
+  }, [cartProducts]);
+
   return (
     <div className="flex justify-between">
       <div className="flex gap-4">
@@ -31,9 +36,7 @@ const ProductCheckout = ({
           </div>
         </div>
       </div>
-      <p>
-        ${`${(cartProducts.product.price * cartProducts.quantity).toFixed(2)}`}
-      </p>
+      <p>${productTotal}</p>
     </div>
   );
 };
