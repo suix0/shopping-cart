@@ -12,9 +12,9 @@ const Navigation = ({ windowDimensions }) => {
           <div
             className={`${
               !menuOpen
-                ? "pointer-events-none -translate-x-[10000px] duration-1000"
-                : "pointer-events-auto -translate-x-[0px]"
-            } flex flex-col gap-10 text-white fixed h-full transition-all ease-out bg-secondary-clr left-0 top-0 isolate z-50 p-4 w-[90vw]`}
+                ? "pointer-events-none -translate-x-[1000px] opacity-0"
+                : "pointer-events-auto -translate-x-[0px] opacity-100"
+            } flex flex-col gap-10 text-white fixed h-full transition-all ease-out duration-980 bg-secondary-clr left-0 top-0 isolate z-50 p-4 w-[90vw]`}
           >
             <img
               onClick={() => setMenuOpen(false)}
