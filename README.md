@@ -6,9 +6,7 @@ A shopping cart project I made, built with React, React Router, and Tailwind CSS
 
 This project is currently in deployment in Vercel.
 
-## Project Screen Shot(s)
-
-#### Example:   
+## Project Screen Shot(s)  
 
 ![image](https://github.com/user-attachments/assets/851fdf12-716c-4fda-86d6-4cbb6d2a2eb2)
 ![image](https://github.com/user-attachments/assets/bdde1e19-7877-4f81-9196-cc2a83e139cb)
@@ -18,8 +16,6 @@ This project is currently in deployment in Vercel.
 
 
 ## Installation and Setup Instructions
-
-#### Example:  
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
